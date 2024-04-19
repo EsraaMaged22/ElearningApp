@@ -40,7 +40,7 @@ class _splashState extends State<splash> {
                     Text(
                       "E-LEARNING",
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Color(0xff364CC6),
                           fontWeight: FontWeight.bold,
                           fontSize: 28.sp),
                     )
