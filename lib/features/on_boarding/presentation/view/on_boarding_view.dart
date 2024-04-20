@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import  'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class firstonboarding extends StatefulWidget {
-  const firstonboarding({super.key});
+class FirstOnBoarding extends StatefulWidget {
+  const FirstOnBoarding({super.key});
 
   @override
-  State<firstonboarding> createState() => _firstonboardingState();
+  State<FirstOnBoarding> createState() => _FirstOnBoardingState();
 }
 
-class _firstonboardingState extends State<firstonboarding> {
+class _FirstOnBoardingState extends State<FirstOnBoarding> {
   Widget dotpageview() {
     return Builder(builder: ((context) {
       return Row(
@@ -87,7 +87,7 @@ class _firstonboardingState extends State<firstonboarding> {
                       borderRadius: BorderRadius.circular(25),
                       color: Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child:  const Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -106,7 +106,7 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/second.png"),
+              Image.asset("assets/second.jpg"),
               SizedBox(
                 height: 50.h,
               ),
@@ -162,7 +162,7 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/third.png"),
+              Image.asset("assets/third.jpg"),
               SizedBox(
                 height: 50.h,
               ),
@@ -193,9 +193,9 @@ class _firstonboardingState extends State<firstonboarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color:  const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Get Started",
                       style: TextStyle(color: Colors.white, fontSize: 16),
