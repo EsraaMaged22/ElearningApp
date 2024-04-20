@@ -52,7 +52,7 @@ class _firstonboardingState extends State<firstonboarding> {
               ),
               Image.asset("assets/first.png"),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "WECOME !",
@@ -62,7 +62,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -70,7 +70,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -106,9 +106,9 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/second.png"),
+              Image.asset('assets/second.jpg'),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "CONNECT WITH EVERYONE !",
@@ -118,7 +118,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -126,7 +126,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -162,9 +162,9 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/third.png"),
+              Image.asset("assets/third.jpg"),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "LEARN ON YOUR SCHEDULE !",
@@ -174,7 +174,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -182,7 +182,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
