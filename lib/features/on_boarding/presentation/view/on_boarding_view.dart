@@ -187,7 +187,8 @@ class _firstonboardingState extends State<firstonboarding> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                  },
                   child: Container(
                     width: double.infinity,
                     height: 50,

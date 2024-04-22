@@ -33,6 +33,7 @@ dependencies:
   flutter_screenutil:
   sqflite:
   path:
+  google_nav_bar:
 
 
 
