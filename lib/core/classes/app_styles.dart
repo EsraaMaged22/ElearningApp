@@ -4,6 +4,7 @@ class AppStyles {
   static const TextStyle style25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.bold,
+    color: Colors.black
   );
 
   static const TextStyle style18Grey = TextStyle(
