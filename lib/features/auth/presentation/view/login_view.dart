@@ -1,4 +1,5 @@
 import 'package:elearningproject/core/app_styles.dart';
+import 'package:elearningproject/features/auth/presentation/view/register_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -68,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 15.h,
               ),
               const Text(
                 "Or enter you username and password",
@@ -93,6 +94,9 @@ class _LoginViewState extends State<LoginView> {
                   }
                   return null;
                 }, iconField: Icon(Icons.person),
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               const Align(
                 alignment: Alignment.topLeft,
@@ -125,7 +129,9 @@ class _LoginViewState extends State<LoginView> {
                   )),
               SizedBox(height: 8.h),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const RegisterView()));
+                  },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
