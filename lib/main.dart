@@ -19,8 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context,  child) {
         return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Profile(),
-          // splash(),
+          home: splash(),
         );
       },
     );
