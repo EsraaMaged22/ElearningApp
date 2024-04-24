@@ -1,3 +1,4 @@
+import 'package:elearningproject/features/home/presentation/view/home_view.dart';
 import 'package:elearningproject/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context,  child) {
         return MaterialApp(
-          home:  splash(),
+          debugShowCheckedModeBanner: false,
+          home:  HomeView(),
         );
       },
     );

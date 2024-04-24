@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import  'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FirstOnBoarding extends StatefulWidget {
@@ -87,7 +87,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                       borderRadius: BorderRadius.circular(25),
                       color: Color(0xff364CC6),
                     ),
-                    child:  const Center(
+                    child: Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -106,7 +106,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/second.jpg"),
+              Image.asset("assets/second.png"),
               SizedBox(
                 height: 50.h,
               ),
@@ -162,7 +162,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/third.jpg"),
+              Image.asset("assets/third.png"),
               SizedBox(
                 height: 50.h,
               ),
@@ -193,9 +193,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color:  const Color(0xff364CC6),
+                      color: Color(0xff364CC6),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Text(
                       "Get Started",
                       style: TextStyle(color: Colors.white, fontSize: 16),
