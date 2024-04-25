@@ -25,6 +25,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil:
+  sqflite:
+  path:
+  google_nav_bar:
 
   cupertino_icons: ^1.0.6
   flutter_rating_bar: ^4.0.1
@@ -38,9 +41,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/splash.jpg
-    - assets/first.png
-    - assets/second.jpg
-    - assets/third.jpg
+    - assets/
 
 
