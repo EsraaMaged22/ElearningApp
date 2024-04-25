@@ -1,10 +1,10 @@
 import 'package:elearningproject/core/app_styles.dart';
-import 'package:elearningproject/features/home/presentation/view/widgets/bottom_nav_bar.dart';
+import 'package:elearningproject/features/bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
 import 'package:elearningproject/features/home/presentation/view/widgets/custom_categories.dart';
 import 'package:elearningproject/features/home/presentation/view/widgets/courses_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/courses_info.dart';
 
@@ -46,9 +46,9 @@ class HomeView extends StatelessWidget {
                         Icon(Icons.notifications),
                       ],
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     const Text('John Doe', style: AppStyles.style22Black),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     ClipRRect( child: Image.network('https://t4.ftcdn'
                         ''
                         ''
@@ -56,10 +56,10 @@ class HomeView extends StatelessWidget {
                         ''
                         '.net/jpg/03/98/77/53/360_F_398775311_Wp8oHwWgcijcfZsq3Yha2mahFPlmsmqF.jpg',width: 400,),
 
-                        borderRadius: BorderRadius.circular(40.0),
+                      borderRadius: BorderRadius.circular(40.0),
 
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     CategoriesWidget(),
                     SizedBox(
                       height: MediaQuery
@@ -88,13 +88,13 @@ class HomeView extends StatelessWidget {
               ),
 
 
-             const Positioned(
+              Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
                 child: SizedBox(
-                  height: 80,
-                  child: CustomBottomNavigationBar(),
+                  height: 80.h,
+                  child: bottomnavigationbar(),
                 ),
               ),
             ],
