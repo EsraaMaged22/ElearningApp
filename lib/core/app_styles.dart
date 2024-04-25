@@ -23,16 +23,16 @@ class AppStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static const TextStyle style16Grey = TextStyle(
+  static const TextStyle style20Grey = TextStyle(
       fontWeight: FontWeight.w400,
       color: Colors.grey,
-      fontSize: 16
+      fontSize: 20
   );
 
-  static const TextStyle style15Black = TextStyle(
+  static const TextStyle style22Black = TextStyle(
     fontWeight: FontWeight.w500,
     color: Colors.black,
-    fontSize: 15,
+    fontSize: 22,
   );
 
 }

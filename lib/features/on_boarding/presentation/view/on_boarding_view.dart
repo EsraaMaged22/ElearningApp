@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class firstonboarding extends StatefulWidget {
-  const firstonboarding({super.key});
+class FirstOnBoarding extends StatefulWidget {
+  const FirstOnBoarding({super.key});
 
   @override
-  State<firstonboarding> createState() => _firstonboardingState();
+  State<FirstOnBoarding> createState() => _FirstOnBoardingState();
 }
 
-class _firstonboardingState extends State<firstonboarding> {
+class _FirstOnBoardingState extends State<FirstOnBoarding> {
   Widget dotpageview() {
     return Builder(builder: ((context) {
       return Row(
@@ -53,7 +53,7 @@ class _firstonboardingState extends State<firstonboarding> {
               ),
               Image.asset("assets/first.png"),
               SizedBox(
-                height: 10.h,
+                height: 50.h,
               ),
               Text(
                 "WECOME !",
@@ -63,7 +63,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -71,7 +71,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 30.h,
+                height: 50.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -107,9 +107,9 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset('assets/second.jpg'),
+              Image.asset("assets/second.png"),
               SizedBox(
-                height: 10.h,
+                height: 50.h,
               ),
               Text(
                 "CONNECT WITH EVERYONE !",
@@ -119,7 +119,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -127,7 +127,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 30.h,
+                height: 50.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
@@ -163,9 +163,9 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/third.jpg"),
+              Image.asset("assets/third.png"),
               SizedBox(
-                height: 10.h,
+                height: 50.h,
               ),
               Text(
                 "LEARN ON YOUR SCHEDULE !",
@@ -175,7 +175,7 @@ class _firstonboardingState extends State<firstonboarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -183,7 +183,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 30.h,
+                height: 50.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
