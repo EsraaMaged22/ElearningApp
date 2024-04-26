@@ -1,7 +1,8 @@
+import 'package:elearningproject/core/classes/app_colors.dart';
 import 'package:elearningproject/features/auth/presentation/view/screens/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/app_colors.dart';
+
 import '../../../../../core/classes/app_styles.dart';
 
 
