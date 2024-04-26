@@ -1,30 +1,28 @@
 import 'package:elearningproject/features/auth/presentation/view/screens/users_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class firstonboarding extends StatefulWidget {
-  const firstonboarding({super.key});
+class FirstOnBoarding extends StatefulWidget {
+  const FirstOnBoarding({super.key});
 
   @override
-  State<firstonboarding> createState() => _firstonboardingState();
+  State<FirstOnBoarding> createState() => _FirstOnBoardingState();
 }
 
-class _firstonboardingState extends State<firstonboarding> {
-  Widget dotpageview() {
+class _FirstOnBoardingState extends State<FirstOnBoarding> {
+  Widget dotPageView() {
     return Builder(builder: ((context) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           for (int i = 0; i < 3; i++)
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               width: i == pagenumber ? 25 : 6,
               height: 6.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: i == pagenumber ? Color(0xff364CC6) : Colors.grey),
+                  color: i == pagenumber ? const Color(0xff364CC6) : Colors.grey),
             ),
         ],
       );
@@ -41,7 +39,7 @@ class _firstonboardingState extends State<firstonboarding> {
       body: PageView(
         onPageChanged: (value) {
           setState(() {
-            pagenumber=value;
+            pagenumber = value;
           });
         },
         controller: nextpage,
@@ -78,7 +76,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 child: InkWell(
                   onTap: () {
                     nextpage.animateToPage(1,
-                        duration: Duration(milliseconds: 700),
+                        duration: const Duration(milliseconds: 700),
                         curve: Curves.easeIn);
                   },
                   child: Container(
@@ -86,9 +84,9 @@ class _firstonboardingState extends State<firstonboarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -99,7 +97,7 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
           Column(
@@ -134,7 +132,7 @@ class _firstonboardingState extends State<firstonboarding> {
                 child: InkWell(
                   onTap: () {
                     nextpage.animateToPage(2,
-                        duration: Duration(milliseconds: 700),
+                        duration: const Duration(milliseconds: 700),
                         curve: Curves.easeIn);
                   },
                   child: Container(
@@ -142,9 +140,9 @@ class _firstonboardingState extends State<firstonboarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -155,7 +153,7 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
           Column(
@@ -189,16 +187,17 @@ class _firstonboardingState extends State<firstonboarding> {
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=> const UsersScreen()), (route) => false);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const UsersScreen()));
                   },
                   child: Container(
                     width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Get Started",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -209,7 +208,7 @@ class _firstonboardingState extends State<firstonboarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
         ],

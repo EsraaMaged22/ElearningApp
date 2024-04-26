@@ -1,4 +1,5 @@
-import 'package:elearningproject/features/profile/presentation/view/screens/profile_view.dart';
+
+import 'package:elearningproject/features/home/presentation/view/home_view.dart';
 import 'package:elearningproject/features/splash/presentation/view/splash_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

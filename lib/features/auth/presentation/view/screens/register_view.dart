@@ -1,5 +1,7 @@
 import 'package:elearningproject/features/auth/presentation/view/screens/login_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:elearningproject/features/bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,22 +24,23 @@ class _RegisterViewState extends State<RegisterView> {
   GlobalKey globalKey = GlobalKey();
   int currentStep = 0;
 
-  continueStep(){
-    if(currentStep<3){
+  continueStep() {
+    if (currentStep < 3) {
       setState(() {
-        currentStep = currentStep+1;
+        currentStep = currentStep + 1;
       });
     }
   }
 
-  cancelStep(){
+  cancelStep() {
     setState(() {
-      if(currentStep > 0){
-        currentStep = currentStep -1;
+      if (currentStep > 0) {
+        currentStep = currentStep - 1;
       }
     });
   }
-  Widget firstControlsBuilder(context , details){
+
+  Widget firstControlsBuilder(context, details) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -50,7 +53,8 @@ class _RegisterViewState extends State<RegisterView> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
                 minimumSize: Size(40.w, 40.h),
-                backgroundColor: const Color(0xff364CC6),),
+                backgroundColor: const Color(0xff364CC6),
+              ),
               child: const Text(
                 "Next",
                 style: TextStyle(color: Colors.white, fontSize: 20),
@@ -59,7 +63,8 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-  Widget controlsBuilder(context , details){
+
+  Widget controlsBuilder(context, details) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -69,15 +74,18 @@ class _RegisterViewState extends State<RegisterView> {
           ElevatedButton(
               onPressed: details.onStepContinue,
               style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  minimumSize: Size(40.w, 40.h),
-                  backgroundColor: const Color(0xff364CC6),),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                minimumSize: Size(40.w, 40.h),
+                backgroundColor: const Color(0xff364CC6),
+              ),
               child: const Text(
                 "Next",
                 style: TextStyle(color: Colors.white, fontSize: 20),
               )),
-          SizedBox(width: 50.w,),
+          SizedBox(
+            width: 50.w,
+          ),
           ElevatedButton(
               onPressed: details.onStepCancel,
               style: ElevatedButton.styleFrom(
@@ -93,7 +101,8 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-  Widget lastControlsBuilder(context , details){
+
+  Widget lastControlsBuilder(context, details) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -115,8 +124,6 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -172,94 +179,103 @@ class _RegisterViewState extends State<RegisterView> {
               ),
               const Text(
                 "Or Create your own account",
-                style: AppStyles.style15Black,
+                style: AppStyles.style18Black,
               ),
               Stepper(
                   currentStep: currentStep,
-                  onStepContinue: continueStep ,
+                  onStepContinue: continueStep,
                   onStepCancel: cancelStep,
-                  controlsBuilder: currentStep == 0 ? firstControlsBuilder : currentStep <=2 && currentStep !=0?controlsBuilder: lastControlsBuilder,
+                  controlsBuilder: currentStep == 0
+                      ? firstControlsBuilder
+                      : currentStep <= 2 && currentStep != 0
+                          ? controlsBuilder
+                          : lastControlsBuilder,
                   steps: [
-                Step(
-                  isActive: currentStep>=0 ,
-                    state: currentStep>=0 ? StepState.complete: StepState.disabled,
-                    title: const Text("Username"),
-                    content: Column(
-                      children: [
-                        CustomTextFormField(
-                          controller: username,
-                          hintText: 'Enter Username',
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your username";
-                            }
-                            return null;
-                          },
-                          iconField: Icon(Icons.person),
-                        ),
-                      ],
-                    )),
-                Step(
-                    isActive: currentStep>=1 ,
-                    state: currentStep>=1 ? StepState.complete: StepState.disabled,
-
-                    title: const Text("Email"),
-                    content: Column(
-                      children: [
-                        CustomTextFormField(
-                          controller: username,
-                          hintText: 'Enter Email',
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your email";
-                            }
-                            return null;
-                          },
-                          iconField: Icon(Icons.email),
-                        ),
-                      ],
-                    )),
-                Step(
-                    isActive: currentStep>=2 ,
-                    state: currentStep>=2 ? StepState.complete: StepState.disabled,
-
-                    title: const Text("Password"),
-                    content: Column(
-                      children: [
-                        CustomTextFormField(
-                          controller: password,
-                          hintText: 'Enter Password',
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter your password";
-                            }
-                            return null;
-                          },
-                          iconField: Icon(Icons.lock),
-                        ),
-                      ],
-                    )),
-                Step(
-                    isActive: currentStep>=3 ,
-                    state: currentStep>=3 ? StepState.complete: StepState.disabled,
-
-                    title: const Text("RePassword"),
-                    content: Column(
-                      children: [
-                        CustomTextFormField(
-                          controller: password,
-                          hintText: 'Enter RePassword',
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please enter same password";
-                            }
-                            return null;
-                          },
-                          iconField: Icon(Icons.lock),
-                        ),
-                      ],
-                    ))
-              ]),
+                    Step(
+                        isActive: currentStep >= 0,
+                        state: currentStep >= 0
+                            ? StepState.complete
+                            : StepState.disabled,
+                        title: const Text("Username"),
+                        content: Column(
+                          children: [
+                            CustomTextFormField(
+                              controller: username,
+                              hintText: 'Enter Username',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your username";
+                                }
+                                return null;
+                              },
+                              iconField: const Icon(Icons.person),
+                            ),
+                          ],
+                        )),
+                    Step(
+                        isActive: currentStep >= 1,
+                        state: currentStep >= 1
+                            ? StepState.complete
+                            : StepState.disabled,
+                        title: const Text("Email"),
+                        content: Column(
+                          children: [
+                            CustomTextFormField(
+                              controller: username,
+                              hintText: 'Enter Email',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your email";
+                                }
+                                return null;
+                              },
+                              iconField: const Icon(Icons.email),
+                            ),
+                          ],
+                        )),
+                    Step(
+                        isActive: currentStep >= 2,
+                        state: currentStep >= 2
+                            ? StepState.complete
+                            : StepState.disabled,
+                        title: const Text("Password"),
+                        content: Column(
+                          children: [
+                            CustomTextFormField(
+                              controller: password,
+                              hintText: 'Enter Password',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter your password";
+                                }
+                                return null;
+                              },
+                              iconField: const Icon(Icons.lock),
+                            ),
+                          ],
+                        )),
+                    Step(
+                        isActive: currentStep >= 3,
+                        state: currentStep >= 3
+                            ? StepState.complete
+                            : StepState.disabled,
+                        title: const Text("RePassword"),
+                        content: Column(
+                          children: [
+                            CustomTextFormField(
+                              controller: password,
+                              hintText: 'Enter RePassword',
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter same password";
+                                }
+                                return null;
+                              },
+                              iconField: const Icon(Icons.lock),
+                            ),
+                          ],
+                        ))
+                  ]),
               const Expanded(child: SizedBox()),
               ElevatedButton(
                   onPressed: () async {
@@ -272,8 +288,14 @@ class _RegisterViewState extends State<RegisterView> {
                       print(e);
                     } catch (e) {
                       print(e);
-                    }
-                  },
+                    }},
+
+                  /*onPressed: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const bottomnavigationbar()),
+                        (route) => false);
+                  },*/
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
@@ -286,7 +308,8 @@ class _RegisterViewState extends State<RegisterView> {
               SizedBox(height: 8.h),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LoginView()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const LoginView()));
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

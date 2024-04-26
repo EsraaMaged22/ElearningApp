@@ -1,3 +1,5 @@
+import 'package:elearningproject/features/home/presentation/view/home_view.dart';
+import 'package:elearningproject/features/profile/presentation/view/screens/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -10,7 +12,7 @@ class bottomnavigationbar extends StatefulWidget {
 
 class _bottomnavigationbarState extends State<bottomnavigationbar> {
   int navBarIndex = 0;
-  List navBody = ["", "", "", ""];
+  List navBody = [HomeView(),const Profile()];
 
   @override
   Widget build(BuildContext context) {
@@ -25,21 +27,16 @@ class _bottomnavigationbarState extends State<bottomnavigationbar> {
             text: "home",
             backgroundColor: Color(0xff364CC6),
           ),
-          GButton(
-            icon: Icons.search_outlined,
-            text: "search",
-            backgroundColor: Color(0xff364CC6),
-          ),
-          GButton(
-            icon: Icons.favorite_border_outlined,
-            text: "favorite",
-            backgroundColor: Color(0xff364CC6),
-          ),
-          GButton(
-            icon: Icons.chat_bubble_outline,
-            text: "chat",
-            backgroundColor: Color(0xff364CC6),
-          ),
+          // GButton(
+          //   icon: Icons.favorite_border_outlined,
+          //   text: "favorite",
+          //   backgroundColor: Color(0xff364CC6),
+          // ),
+          // GButton(
+          //   icon: Icons.chat_bubble_outline,
+          //   text: "chat",
+          //   backgroundColor: Color(0xff364CC6),
+          // ),
           GButton(
             icon: Icons.person_2_outlined,
             text: "profile",

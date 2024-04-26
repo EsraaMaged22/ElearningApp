@@ -22,9 +22,9 @@ class CustomTextField extends StatelessWidget {
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text( "${text}",style: AppStyles.style16Grey,),
+        Text( text,style: AppStyles.style18Grey,),
         SizedBox(height: 8.h,),
-        Container(
+        SizedBox(
           height: MediaQuery.of(context).size.height/12,
           child: TextFormField(
             validator: validator,
@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: hint,
                 prefixIcon: Icon(icon),
-                hintStyle:  TextStyle(
+                hintStyle:  const TextStyle(
                     fontSize: 10,color: Colors.grey),
                 enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),

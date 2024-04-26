@@ -1,14 +1,14 @@
 
+
 import 'package:elearningproject/core/classes/app_colors.dart';
+
+
 import 'package:elearningproject/features/profile/presentation/view/screens/edit_profile_view.dart';
 import 'package:elearningproject/features/profile/presentation/view/widgets/custom_setting_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/classes/app_styles.dart';
-
 import '../widgets/custom_matrial_button.dart';
 import '../widgets/setting_options.dart';
 
@@ -25,7 +25,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         controller: ScrollController(),
         child: Padding(
           padding: const EdgeInsets.only(top: 40,right: 16,left: 16,bottom: 8),
@@ -33,11 +33,11 @@ class _ProfileState extends State<Profile> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ListTile(
-                title: Text("Profile",style: AppStyles.style25),
-                trailing: IconButton(icon:Icon(Icons.more_vert),onPressed: (){},),
+                title: const Text("Profile",style: AppStyles.style25),
+                trailing: IconButton(icon:const Icon(Icons.more_vert),onPressed: (){},),
               ),
               SizedBox(height: 20.h),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width/2.5,
                 height: MediaQuery.of(context).size.height*0.18,
                 child: Stack(
@@ -62,30 +62,30 @@ class _ProfileState extends State<Profile> {
                         child: FloatingActionButton(
                           mini: true,
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EditProfile()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const EditProfile()));
                           },
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           backgroundColor: AppColors.darkBlueColor,
-                          child:Icon(Icons.edit,size: 24,color: Colors.white,),),
+                          child:const Icon(Icons.edit,size: 24,color: Colors.white,),),
                         )]),),
-              Text("Name",style: AppStyles.style25),
+              const Text("Name",style: AppStyles.style25),
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 IconButton(
                   onPressed: () {},
                     icon: Image.asset("assets/crown-removebg-preview.png",scale: 20,),
                ),
-                Text("Premium Account",style: AppStyles.style15Black),
+                const Text("Premium Account",style: AppStyles.style18Black),
                 ],),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CustomMaterialButton(
+                  const CustomMaterialButton(
                     text: "26 Hours",
                     icon:Icons.schedule ,
                   ),
                   SizedBox(width: 20.h,),
-                  CustomMaterialButton(
+                  const CustomMaterialButton(
                     text: "12 Courses",
                     icon:Icons.folder_copy_outlined ,
                   ),
@@ -97,7 +97,7 @@ class _ProfileState extends State<Profile> {
                   title: "Setting",
               color: AppColors.darkBlueColor,
               onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder:(context)=> SettingOptions(
+                    Navigator.push(context, MaterialPageRoute(builder:(context)=> const SettingOptions(
                     )));
               },),
               CustomSettingItem(

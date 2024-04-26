@@ -1,6 +1,6 @@
 
 import 'package:elearningproject/features/auth/presentation/view/screens/register_view.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:elearningproject/features/bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -73,7 +73,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               const Text(
                 "Or enter you username and password",
-                style: AppStyles.style15Black,
+                style: AppStyles.style18Black,
               ),
               SizedBox(
                 height: 20.h,
@@ -93,7 +93,8 @@ class _LoginViewState extends State<LoginView> {
                     return "Please enter your username";
                   }
                   return null;
-                }, iconField: Icon(Icons.person),
+                },
+                iconField: const Icon(Icons.person),
               ),
               SizedBox(
                 height: 20.h,
@@ -113,11 +114,17 @@ class _LoginViewState extends State<LoginView> {
                     return "Please enter your password";
                   }
                   return null;
-                }, iconField: Icon(Icons.lock),
+                },
+                iconField: const Icon(Icons.lock),
               ),
               const Expanded(child: SizedBox()),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const bottomnavigationbar()),
+                        (route) => false);
+                  },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
@@ -130,7 +137,8 @@ class _LoginViewState extends State<LoginView> {
               SizedBox(height: 8.h),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const RegisterView()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const RegisterView()));
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
