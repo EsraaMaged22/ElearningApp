@@ -27,28 +27,26 @@ class _splashState extends State<splash> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 150.h,
-                width: 150.h,
-                child: Column(
-                  children: [
-                    Image.asset("assets/splash.jpg"),
-                    Text(
-                      "E-LEARNING",
-                      style: TextStyle(
-                          color: Color(0xff364CC6),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 28.sp),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 150.h,
+              width: 150.h,
+              child: Column(
+                children: [
+                  Image.asset("assets/splash.jpg"),
+                  Text(
+                    "E-LEARNING",
+                    style: TextStyle(
+                        color: const Color(0xff364CC6),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28.sp),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

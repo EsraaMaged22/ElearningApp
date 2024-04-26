@@ -14,9 +14,8 @@ class CustomRatingBar extends StatelessWidget {
           direction: Axis.horizontal,
           allowHalfRating: true,
           itemCount: 5,
-          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-         itemSize: 20.0,
-         itemBuilder: (context, _) => Icon(
+         itemSize: 15.0,
+         itemBuilder: (context, _) => const Icon(
             Icons.star,
             color: Colors.amber,
           ),

@@ -1,7 +1,5 @@
 import 'package:elearningproject/features/auth/presentation/view/screens/users_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FirstOnBoarding extends StatefulWidget {
@@ -12,19 +10,19 @@ class FirstOnBoarding extends StatefulWidget {
 }
 
 class _FirstOnBoardingState extends State<FirstOnBoarding> {
-  Widget dotpageview() {
+  Widget dotPageView() {
     return Builder(builder: ((context) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           for (int i = 0; i < 3; i++)
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
               width: i == pagenumber ? 25 : 6,
               height: 6.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: i == pagenumber ? Color(0xff364CC6) : Colors.grey),
+                  color: i == pagenumber ? const Color(0xff364CC6) : Colors.grey),
             ),
         ],
       );
@@ -41,7 +39,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
       body: PageView(
         onPageChanged: (value) {
           setState(() {
-            pagenumber=value;
+            pagenumber = value;
           });
         },
         controller: nextpage,
@@ -53,7 +51,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               ),
               Image.asset("assets/first.png"),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "WECOME !",
@@ -63,7 +61,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -71,14 +69,14 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
                   onTap: () {
                     nextpage.animateToPage(1,
-                        duration: Duration(milliseconds: 700),
+                        duration: const Duration(milliseconds: 700),
                         curve: Curves.easeIn);
                   },
                   child: Container(
@@ -86,9 +84,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -99,7 +97,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
           Column(
@@ -107,9 +105,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/second.png"),
+              Image.asset('assets/second.jpg'),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "CONNECT WITH EVERYONE !",
@@ -119,7 +117,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -127,14 +125,14 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
                   onTap: () {
                     nextpage.animateToPage(2,
-                        duration: Duration(milliseconds: 700),
+                        duration: const Duration(milliseconds: 700),
                         curve: Curves.easeIn);
                   },
                   child: Container(
@@ -142,9 +140,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Next",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -155,7 +153,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
           Column(
@@ -163,9 +161,9 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 60.h,
               ),
-              Image.asset("assets/third.png"),
+              Image.asset("assets/third.jpg"),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 "LEARN ON YOUR SCHEDULE !",
@@ -175,7 +173,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                     fontSize: 30.sp),
               ),
               SizedBox(
-                height: 20.h,
+                height: 10.h,
               ),
               Text(
                 textAlign: TextAlign.center,
@@ -183,22 +181,23 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
                 style: TextStyle(fontSize: 12.sp),
               ),
               SizedBox(
-                height: 50.h,
+                height: 30.h,
               ),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=> const UsersScreen()), (route) => false);
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const UsersScreen()));
                   },
                   child: Container(
                     width: double.infinity,
                     height: 50,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff364CC6),
+                      color: const Color(0xff364CC6),
                     ),
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Get Started",
                       style: TextStyle(color: Colors.white, fontSize: 16),
@@ -209,7 +208,7 @@ class _FirstOnBoardingState extends State<FirstOnBoarding> {
               SizedBox(
                 height: 50.h,
               ),
-              dotpageview(),
+              dotPageView(),
             ],
           ),
         ],

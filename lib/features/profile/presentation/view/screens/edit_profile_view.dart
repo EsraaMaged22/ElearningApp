@@ -1,5 +1,3 @@
-
-import 'package:elearningproject/features/profile/presentation/view/widgets/custom_matrial_button.dart';
 import 'package:elearningproject/features/profile/presentation/view/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,21 +29,21 @@ class _EditProfileState extends State<EditProfile> {
       key: formkey,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         controller: ScrollController(),
         child: Padding(
           padding: const EdgeInsets.only(top: 40,right: 16,left: 16,bottom: 8),
           child: Column(
             children: [
               ListTile(
-                title: Center(child: Text("Edit Profile",style: AppStyles.style25)),
-                leading: IconButton(icon:Icon(Icons.arrow_back_ios),
+                title: const Center(child: Text("Edit Profile",style: AppStyles.style25)),
+                leading: IconButton(icon:const Icon(Icons.arrow_back_ios),
                   onPressed: (){
                   Navigator.pop(context);
                   },),
               ),
               SizedBox(height: 8.h),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width/2.5,
                 height: MediaQuery.of(context).size.height*0.18,
                 child: Stack(
@@ -70,18 +68,18 @@ class _EditProfileState extends State<EditProfile> {
                         child: FloatingActionButton(
                           mini: true,
                           onPressed: (){},
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           backgroundColor: AppColors.darkBlueColor,
-                          child:Icon(Icons.add,size: 24,color: Colors.white,),),
+                          child:const Icon(Icons.add,size: 24,color: Colors.white,),),
                       )]),),
-              Text("Name",style: AppStyles.style25),
+              const Text("Name",style: AppStyles.style25),
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () {},
                     icon: Image.asset("assets/crown-removebg-preview.png",scale: 20,),
                   ),
-                  Text("Premium Account",style: AppStyles.style15Black),
+                  const Text("Premium Account",style: AppStyles.style18Black),
                 ],),
               SizedBox(height: 16.h,),
               CustomTextField(
@@ -120,13 +118,13 @@ class _EditProfileState extends State<EditProfile> {
                   return null ;
                 },
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height/12,
                 width:MediaQuery.of(context).size.width,
                 child: MaterialButton(
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
                     color: AppColors.darkBlueColor,
-                    child: Text("Save Change",style: TextStyle(fontSize: 18,color: Colors.white),),
+                    child: const Text("Save Change",style: TextStyle(fontSize: 18,color: Colors.white),),
                     onPressed: (){}),
               )
 
