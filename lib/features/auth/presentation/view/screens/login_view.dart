@@ -1,12 +1,11 @@
 
-import 'package:elearningproject/features/auth/presentation/view/register_view.dart';
+import 'package:elearningproject/features/auth/presentation/view/screens/register_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/classes/app_styles.dart';
-import '../../../../core/custom_text_form_field.dart';
+import '../../../../../core/classes/app_styles.dart';
+import '../../../../../core/custom_text_form_field.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -32,7 +31,7 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             children: [
               SizedBox(
-                height: 100.h,
+                height: 60.h,
               ),
               const Text(
                 "Login",

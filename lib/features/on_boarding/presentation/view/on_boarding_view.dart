@@ -1,3 +1,4 @@
+import 'package:elearningproject/features/auth/presentation/view/screens/users_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -187,7 +188,9 @@ class _firstonboardingState extends State<firstonboarding> {
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=> const UsersScreen()), (route) => false);
+                  },
                   child: Container(
                     width: double.infinity,
                     height: 50,

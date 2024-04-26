@@ -1,9 +1,11 @@
-import 'package:elearningproject/features/auth/presentation/view/login_view.dart';
+import 'package:elearningproject/features/auth/presentation/view/screens/login_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/classes/app_styles.dart';
-import '../../../../core/custom_text_form_field.dart';
+import '../../../../../core/classes/app_styles.dart';
+import '../../../../../core/custom_text_form_field.dart';
+
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -35,7 +37,28 @@ class _RegisterViewState extends State<RegisterView> {
       }
     });
   }
-
+  Widget firstControlsBuilder(context , details){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ElevatedButton(
+              onPressed: details.onStepContinue,
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                minimumSize: Size(40.w, 40.h),
+                backgroundColor: const Color(0xff364CC6),),
+              child: const Text(
+                "Next",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              )),
+        ],
+      ),
+    );
+  }
   Widget controlsBuilder(context , details){
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -78,18 +101,6 @@ class _RegisterViewState extends State<RegisterView> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton(
-              onPressed: (){},
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                minimumSize: Size(40.w, 40.h),
-                backgroundColor: const Color(0xff364CC6),),
-              child: const Text(
-                "Sign Up",
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              )),
-          SizedBox(width: 50.w,),
-          ElevatedButton(
               onPressed: details.onStepCancel,
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -119,7 +130,7 @@ class _RegisterViewState extends State<RegisterView> {
           child: Column(
             children: [
               SizedBox(
-                height: 100.h,
+                height: 60.h,
               ),
               const Text(
                 "Sign Up",
@@ -160,13 +171,14 @@ class _RegisterViewState extends State<RegisterView> {
                 height: 15.h,
               ),
               const Text(
-                "Or enter you username and password",
+                "Or Create your own account",
                 style: AppStyles.style15Black,
               ),
-              Stepper(currentStep: currentStep,
+              Stepper(
+                  currentStep: currentStep,
                   onStepContinue: continueStep ,
                   onStepCancel: cancelStep,
-                  controlsBuilder: currentStep <=2?controlsBuilder: lastControlsBuilder,
+                  controlsBuilder: currentStep == 0 ? firstControlsBuilder : currentStep <=2 && currentStep !=0?controlsBuilder: lastControlsBuilder,
                   steps: [
                 Step(
                   isActive: currentStep>=0 ,
@@ -248,11 +260,33 @@ class _RegisterViewState extends State<RegisterView> {
                       ],
                     ))
               ]),
+              const Expanded(child: SizedBox()),
+              ElevatedButton(
+                  onPressed: () async {
+                    try {
+                      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: email.text,
+                        password: password.text,
+                      );
+                    } on FirebaseAuthException catch (e) {
+                      print(e);
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      minimumSize: Size(double.infinity, 45.h),
+                      backgroundColor: const Color(0xff364CC6)),
+                  child: const Text(
+                    "Sign Up",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  )),
               SizedBox(height: 8.h),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const LoginView()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const LoginView()));
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
