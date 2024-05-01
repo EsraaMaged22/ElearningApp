@@ -1,6 +1,7 @@
 
 import 'package:elearningproject/features/auth/presentation/view/screens/register_view.dart';
 import 'package:elearningproject/features/bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,7 +17,7 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   GlobalKey globalKey = GlobalKey();
-  TextEditingController username = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
   @override
@@ -24,7 +25,7 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      body: Form(
+      body: Form (
         key: globalKey,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(21, 0, 21, 21),
@@ -43,7 +44,11 @@ class _LoginViewState extends State<LoginView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                        onTap: () {},
+                        onTap: () {
+                       FirebaseAuth.instance.currentUser!.sendEmailVerification();
+                          /* FirebaseAuth.instance.currentUser!.emailVerified ?
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>bottomnavigationbar())):(){} ;*/
+                        },
                         child: Image.asset(
                           "assets/apple-icon.png",
                           height: 55.h,
@@ -86,11 +91,11 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               CustomTextFormField(
-                controller: username,
-                hintText: 'Enter Username',
+                controller: email,
+                hintText: 'Enter Email',
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Please enter your username";
+                    return "Please enter your Email";
                   }
                   return null;
                 },
@@ -119,11 +124,21 @@ class _LoginViewState extends State<LoginView> {
               ),
               const Expanded(child: SizedBox()),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                            builder: (context) => const bottomnavigationbar()),
-                        (route) => false);
+                  onPressed: ()
+                    async {
+                      try {
+                        final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: email.text,
+                            password: password.text,
+                        );
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>bottomnavigationbar()));
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          print('No user found for that email.');
+                        } else if (e.code == 'wrong-password') {
+                          print('Wrong password provided for that user.');
+                        }
+                      }
                   },
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(

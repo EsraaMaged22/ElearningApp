@@ -1,4 +1,6 @@
 
+import 'package:elearningproject/features/auth/presentation/view/screens/login_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/classes/app_colors.dart';
@@ -74,7 +76,10 @@ class _SettingOptionsState extends State<SettingOptions> {
                 color: AppColors.darkBlueColor,
                 icon: Icons.logout,
                 title: "Logout",
-                onPressed: (){
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                  print("Log Out successes ");
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginView()));
                 },
               ),
             ],

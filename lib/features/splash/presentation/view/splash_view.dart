@@ -1,6 +1,10 @@
+import 'package:elearningproject/features/home/presentation/view/home_view.dart';
 import 'package:elearningproject/features/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
 
 
 class splash extends StatefulWidget {
@@ -19,7 +23,9 @@ class _splashState extends State<splash> {
   _NavigationHome() async {
     await Future.delayed(Duration(seconds: 3), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => FirstOnBoarding()));
+        context, MaterialPageRoute(builder: (context) =>
+      FirebaseAuth.instance.currentUser == null ? FirstOnBoarding() : bottomnavigationbar(),
+       ));
   }
 
   @override

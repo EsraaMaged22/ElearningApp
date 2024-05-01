@@ -1,4 +1,5 @@
 import 'package:elearningproject/features/auth/presentation/view/screens/login_view.dart';
+import 'package:elearningproject/features/home/presentation/view/home_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:elearningproject/features/bottom_navigaton_bar/presentation/view/bottom_nav_bar_view.dart';
 
@@ -137,7 +138,7 @@ class _RegisterViewState extends State<RegisterView> {
           child: Column(
             children: [
               SizedBox(
-                height: 60.h,
+                height: 40.h,
               ),
               const Text(
                 "Sign Up",
@@ -278,24 +279,32 @@ class _RegisterViewState extends State<RegisterView> {
                   ]),
               const Expanded(child: SizedBox()),
               ElevatedButton(
-                  onPressed: () async {
+                  onPressed: ()
+                  async {
                     try {
                       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
                         email: email.text,
                         password: password.text,
                       );
+                      print("+++++++++++++++++++++++++++++object");
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>bottomnavigationbar()));
                     } on FirebaseAuthException catch (e) {
-                      print(e);
+                      if (e.code == 'weak-password') {
+                        print('The password provided is too weak.');
+                      } else if (e.code == 'email-already-in-use') {
+                        print('The account already exists for that email.');
+                      }
                     } catch (e) {
                       print(e);
-                    }},
+                    }
+                    },
 
-                  /*onPressed: () {
-                    Navigator.of(context).pushAndRemoveUntil(
+                    /*Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
                             builder: (context) => const bottomnavigationbar()),
-                        (route) => false);
-                  },*/
+                        (route) => false);*/
+
+
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
